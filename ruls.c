@@ -1,25 +1,52 @@
 #include "push_swap.h"
 
-void swap(t_stack **lst, char *move)
+void sa(t_stack **a)
 {
+    t_stack *second;
+
+    if(!a || !*a || !(*a)->next)
+        return ;
+    second = (*a)->next;
+    (*a)->next = second->next;
+    second->next = (*a);
+    (*a) = second;
+	ft_putstr("sa");
+}
+
+void sb(t_stack **b)
+{
+    t_stack *second;
+
+    if(!b || !*b || !(*b)->next)
+        return ;
+    second = (*b)->next;
+    (*b)->next = second->next;
+    second->next = (*b);
+    (*b) = second;
+	ft_putstr("sb");
+}
+
+void ss(t_stack **a, t_stack **b)
+{
+
     t_stack *second;
 	int i = 0;
 
-    if(!lst || !*lst || !(*lst)->next)
+    //for stack a
+    if(!a || !*a || !(*a)->next || !b || !*b || !(*b)->next)
         return ;
-    second = (*lst)->next;
-    (*lst)->next = second->next;
-    second->next = (*lst);
-    (*lst) = second;
-	while (move[i])
-	{
-		write(1,&move[i] , 1);
-		i++;
-	}
-	write(1, "\n", 1);
+    second = (*a)->next;
+    (*a)->next = second->next;
+    second->next = (*a);
+    (*a) = second;
+    //for stack b
+    second = (*b)->next;
+    (*b)->next = second->next;
+    second->next = (*b);
+    (*b) = second;
+	ft_putstr("rr");
 }
-
-void push_b(t_stack **a, t_stack **b)
+void pb(t_stack **a, t_stack **b)
 {
     if (!a || !*a || !b)
         return ;
@@ -27,7 +54,7 @@ void push_b(t_stack **a, t_stack **b)
 	write(1, "pb\n", 3);
 }
 
-void push_a(t_stack **a, t_stack **b)
+void pa(t_stack **a, t_stack **b)
 {
     if (!b || !*b || !a)
         return ;
@@ -35,27 +62,51 @@ void push_a(t_stack **a, t_stack **b)
 	write(1, "pa\n", 3);
 }
 
-void rotate_lst(t_stack **lst, char *move)
+void ra(t_stack **a)
 {
     t_stack *first;
-	int i = 0;
 
-    if(!lst || !*lst)
+    if(!a || !*a)
         return;
-
-    first = *lst;
-    *lst = (*lst)->next;
-    add_back(lst, first);
+    first = *a;
+    *a = (*a)->next;
+    add_back(a, first);
     first->next = NULL;
-	while (move[i])
-	{
-		write(1,&move[i] , 1);
-		i++;
-	}	
-	write(1, "\n", 1);
+	ft_putstr("ra");
 }
 
-void rr_lst(t_stack **lst, char *move)
+void rb(t_stack **b)
+{
+    t_stack *first;
+
+    if(!b || !*b)
+        return;
+    first = *b;
+    *b = (*b)->next;
+    add_back(b, first);
+    first->next = NULL;
+	ft_putstr("rb");
+}
+
+void rr(t_stack **a, t_stack **b)
+{ 
+	t_stack *first;
+
+    if(!a || !*a || !b || !*b)
+        return;
+    first = *a;
+    *a = (*a)->next;
+    add_back(a, first);
+    first->next = NULL;
+
+    first = *b;
+    *b = (*b)->next;
+    add_back(b, first);
+    first->next = NULL;
+	ft_putstr("rr");
+}
+
+void rr_lst(t_stack **lst)
 {
     t_stack *last;
     t_stack *first;
@@ -76,11 +127,6 @@ void rr_lst(t_stack **lst, char *move)
     save->next = NULL;
     (*lst) = last;
     (*lst)->next = first;
-	while (move[i])
-	{
-		write(1,&move[i] , 1);
-		i++;
-	}	
-	write(1, "\n", 1);
+	ft_putstr("rrab");
 }
 

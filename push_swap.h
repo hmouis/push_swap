@@ -12,22 +12,29 @@ typedef struct s_stack {
     struct s_stack *next;
 }t_stack;
     
+
+void rr(t_stack **a, t_stack **b);
+t_stack *get_max(t_stack *lst);
+void ss(t_stack **a, t_stack **b);
+void	ft_putstr(char *s);
 void push_min(t_stack **a, t_stack **b);
 t_stack *get_min(t_stack *lst);
-void sort_4(t_stack **a, t_stack **b, char *move);
-void sort_5(t_stack **a, t_stack **b, char *move);
+void sort_4(t_stack **a, t_stack **b);
+void sort_5(t_stack **a, t_stack **b);
 void print_lst(t_stack *a);
-void sort_2(t_stack **lst, char *move);
-void sort_3(t_stack **lst, char *move);
+void sort_2(t_stack **lst, char c);
+void sort_3(t_stack **lst);
 int lst_len(t_stack *lst);
-void rr_lst(t_stack **lst, char *move);
-void rotate_lst(t_stack **lst, char *move);
-void push_b(t_stack **a, t_stack **b);
-void push_a(t_stack **a, t_stack **b);
+void rr_lst(t_stack **lst);
+void ra(t_stack **a);
+void rb(t_stack **b);
+void pb(t_stack **a, t_stack **b);
+void pa(t_stack **a, t_stack **b);
 void  add_front(t_stack **a, t_stack **b);
 t_stack *last_node(t_stack *lst);
 void push_to_lst(t_stack **lst,int n);
-void swap(t_stack **lst, char *move);
+void sa(t_stack **a);
+void sb(t_stack **b);
 void add_back(t_stack **lst, t_stack *node);
 void free_lst(t_stack **lst);
 t_stack *creat_node(int n);

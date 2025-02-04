@@ -1,12 +1,17 @@
 #include "push_swap.h"
 
-void sort_2(t_stack **lst,char *move)
-{
+void sort_2(t_stack **lst, char c)
+{		
     if((*lst)->n > (*lst)->next->n)
-        swap(lst, move);
+	{
+		if (c == 'a')
+			sa(lst);
+		if (c == 'b')
+			sb(lst);
+	}
 }
 
-void sort_3(t_stack **lst,char *move)
+void sort_3(t_stack **lst)
 {
     t_stack *last = last_node(*lst);
 
@@ -14,19 +19,19 @@ void sort_3(t_stack **lst,char *move)
     int test2 = (*lst)->next->n > last->n; 
     if(test1 && test2 && last->n > (*lst)->n) //1 3 2
     {
-        rr_lst(lst, move);
-        swap(lst, move);
+        rr_lst(lst);
+        sa(lst);
     }
     else if(!test1 && ((*lst)->n < last->n)) //2 1 3
-        swap(lst, move);
+        sa(lst);
     else if(test1 && (*lst)->n > last->n) //2 3 1
-        rr_lst(lst, move);
+        rr_lst(lst);
     else if(!test1 && (*lst)->n > last->n && !test2) //3 1 2
-        rotate_lst(lst, move);
+        ra(lst);
     else if(!test1 && test2)// 3 2 1 
     {
-        swap(lst, move);
-        rr_lst(lst, move);
+        sa(lst);
+        rr_lst(lst);
     }
 }
 
@@ -53,7 +58,29 @@ t_stack *get_min(t_stack *lst)
     }
     return save;
 }
-
+t_stack *get_max(t_stack *lst)
+{
+    int max;
+    t_stack *save;
+    
+    while (lst)
+    {
+        max = lst->n;
+        save = lst;
+        while (lst)
+        {
+            if (max >= lst->n)
+            {
+                lst = lst->next;
+                if(!lst)
+                    return (save);
+            }
+            else
+                break;
+        }
+    }
+    return save;
+}
 void push_min(t_stack **a, t_stack **b)
 {
 	t_stack *min;
@@ -71,45 +98,45 @@ void push_min(t_stack **a, t_stack **b)
 		tmp = tmp->next;
 	}
 	if (i == 1)
-		push_b(a, b);
+		pb(a, b);
 	else if (i == 2)
 	{
-		swap(a, "sa");
-		push_b(a, b);
+		sa(a);
+		pb(a, b);
 	}
 	else if (i == 3)
 	{
-		rotate_lst(a, "ra");
-		rotate_lst(a, "ra");
-		push_b(a, b);
+		ra(a);
+		ra(a);
+		pb(a, b);
 	}
 	else if (i == 4)
 	{
-		rr_lst(a , "rra");
-		rr_lst(a , "rra");
-		push_b(a, b);
+		rr_lst(a);
+		rr_lst(a);
+		pb(a, b);
 	}
 	else if (i == 5)
 	{
-		rr_lst(a, "rra");
-		push_b(a, b);
+		rr_lst(a);
+		pb(a, b);
 	}
 }
 
-void sort_4(t_stack **a, t_stack **b, char *move)
+void sort_4(t_stack **a, t_stack **b)
 {
 	push_min(a, b);	
-	sort_3(a, move);
-	push_a(a, b);
+	sort_3(a);
+	pa(a, b);
 }
     
-void sort_5(t_stack **a,t_stack **b, char *move)
+void sort_5(t_stack **a,t_stack **b)
 {
 	if (lst_len(*a) == 5)
 	{
 		push_min(a, b);
-		sort_4(a, b, move);
-		push_a(a, b);
+		sort_4(a, b);
+		pa(a, b);
 	}
 }
 

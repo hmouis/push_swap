@@ -56,15 +56,6 @@ int main(int ac, char **av)
         free_lst(&a);
         return (0);
     }
-	if (lst_len(a) == 5)
-		sort_5(&a, &b, "sa");
-	else if (lst_len(a) == 4)
-		sort_4(&a, &b, "sa");
-	else if (lst_len(a) == 3)
-		sort_3(&a, "sa");
-	else if (lst_len(a) == 2)
-		sort_2(&a, "sa");
-	print_lst(a);
     return (0);
 
 }

@@ -84,3 +84,33 @@ void	ft_putnbr(int n)
 		ft_putchar(n + '0');
 	}
 }
+
+/*int find_index(t_stack *lst)
+{
+	int i = 0;
+
+	while (
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
