@@ -1,48 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_to_stack.c                                       :+:      :+:    :+:   */
+/*   lst_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 11:24:17 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:24:19 by hmouis           ###   ########.fr       */
+/*   Created: 2025/02/07 11:24:07 by hmouis            #+#    #+#             */
+/*   Updated: 2025/02/07 11:24:08 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_to_lst(t_stack **lst, int n)
+int	lst_len(t_stack *lst)
 {
-	t_stack	*node;
+	int	i;
 
-	node = creat_node(n);
-	add_back(lst, node);
-}
-
-int	check_number(t_stack *lst, int n)
-{
+	i = 0;
 	while (lst)
 	{
-		if (n == lst->n)
-			return (1);
+		i++;
 		lst = lst->next;
 	}
-	return (0);
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	if (!a || !*a || !b)
-		return ;
-	add_front(a, b);
-	write(1, "pb\n", 3);
-}
-
-void	pa(t_stack **a, t_stack **b)
-{
-	if (!b || !*b || !a)
-		return ;
-	add_front(b, a);
-	write(1, "pa\n", 3);
+	return (i);
 }

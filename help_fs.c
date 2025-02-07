@@ -1,60 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   help_fs.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/07 11:23:30 by hmouis            #+#    #+#             */
+/*   Updated: 2025/02/07 11:23:33 by hmouis           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-long check_arg(char *str)
+long	check_arg(char *str)
 {
-    int	i;
+	int	i;
 
-    i = 0;
-    while (str[i] == ' ')
-        i++;
-    if (str[i] == '\0')
-        return (LONG_MAX);
-    while (str[i])
-    {
-        if(str[i] == ' ' || (str[i] >= '0' && str[i] <= '9') || str[i] == '+' || str[i] == '-')
-        {
-            if (str[i] == '+' || str[i] == '-')
-            {
-                i++;
-                if(str[i] < '0' || str[i] > '9')
-                    return (LONG_MAX);
-            }
-            i++;
-        }
-        else 
-            return (LONG_MAX);
-    }
-    return (1);
+	i = 0;
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (LONG_MAX);
+	while (str[i])
+	{
+		if (str[i] == ' ' || (str[i] >= '0' && str[i] <= '9') || str[i] == '+'
+			|| str[i] == '-')
+		{
+			if (str[i] == '+' || str[i] == '-')
+			{
+				i++;
+				if (str[i] < '0' || str[i] > '9')
+					return (LONG_MAX);
+			}
+			i++;
+		}
+		else
+			return (LONG_MAX);
+	}
+	return (1);
 }
 
-long ft_atoi(char *str, int *i)
+void	check_sign(char *str, int *i, int sign)
 {
-    long result = 0;
-    int sign = 1;
+	if (str[*i] == '-' || str[*i] == '+')
+	{
+		if (str[*i] == '-')
+			sign = -1;
+		(*i)++;
+	}
+}
 
-    if(str[*i] == '-' || str[*i] == '+')
-    {
-        if (str[*i] == '-')
-            sign = -1;
-        (*i)++;
-    }
-    while (str[*i] >= '0' && str[*i] <= '9')
-    {
-        result = result * 10 + str[*i] - '0';
-        if (result > 2147483648)
-            break;
-        (*i)++;
-    }
-    if (str[*i] == '-' || str[*i] == '+')
-        return (LONG_MAX);
-    if (sign == -1)
-    {
-        if (result > 2147483648)
-            return (LONG_MAX);
-    }
-    else if (result > 2147483647)
-        return (LONG_MAX);
-    return (result * sign);
+long	ft_atoi(char *str, int *i)
+{
+	long	result;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	check_sign(str, i, sign);
+	while (str[*i] >= '0' && str[*i] <= '9')
+	{
+		result = result * 10 + str[*i] - '0';
+		if (result > 2147483648)
+			break ;
+		(*i)++;
+	}
+	if (str[*i] == '-' || str[*i] == '+')
+		return (LONG_MAX);
+	if (sign == -1 && result > 2147483648)
+		return (LONG_MAX);
+	else if (result > 2147483647)
+		return (LONG_MAX);
+	return (result * sign);
 }
 
 void	ft_putchar(char c)
@@ -84,33 +101,3 @@ void	ft_putnbr(int n)
 		ft_putchar(n + '0');
 	}
 }
-
-/*int find_index(t_stack *lst)
-{
-	int i = 0;
-
-	while (
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
