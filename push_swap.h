@@ -6,7 +6,7 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:24:53 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:24:54 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/07 22:19:05 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	help_1(t_stack **a, t_stack **b, int min, int max);
-void	help_2(t_stack **a, t_stack **b, int min, int max);
+int					check_sort(t_stack *a);
+int					get_index(t_stack *b);
 void				rrr(t_stack **a, t_stack **b);
 void				sort_s_a(t_stack **a, t_stack **b, int len);
 int					get_pos(t_stack *a);
@@ -61,7 +61,7 @@ void				free_lst(t_stack **lst);
 t_stack				*creat_node(int n);
 long				check_arg(char *str);
 size_t				ft_strlen(const char *s);
-long				ft_atoi(char *str, int *i);
+long				ft_atoi(char *str, long *i);
 void				ft_putnbr(int n);
 void				ft_putchar(char c);
 int					check_number(t_stack *lst, int n);

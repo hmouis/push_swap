@@ -40,7 +40,7 @@ long	check_arg(char *str)
 	return (1);
 }
 
-void	check_sign(char *str, int *i, int sign)
+void	check_sign(char *str, long *i, int sign)
 {
 	if (str[*i] == '-' || str[*i] == '+')
 	{
@@ -50,7 +50,7 @@ void	check_sign(char *str, int *i, int sign)
 	}
 }
 
-long	ft_atoi(char *str, int *i)
+long	ft_atoi(char *str, long *i)
 {
 	long	result;
 	int		sign;

@@ -6,20 +6,17 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:24:28 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:24:30 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/07 22:23:37 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 t_stack	*fill_stack_a(char **av)
 {
-	int		i;
-	long	n;
 	t_stack	*lst;
-	int		args;
 
+	long (n), (args), (i);
 	i = 0;
 	lst = NULL;
 	args = 1;
@@ -35,9 +32,7 @@ t_stack	*fill_stack_a(char **av)
 			if (av[args][i] == '\0')
 				break ;
 			n = ft_atoi(av[args], &i);
-			if (n == LONG_MAX)
-				return (NULL);
-			if (check_number(lst, n))
+			if (n == LONG_MAX || check_number(lst, n))
 				return (NULL);
 			push_to_lst(&lst, n);
 		}
@@ -45,14 +40,7 @@ t_stack	*fill_stack_a(char **av)
 	}
 	return (lst);
 }
-void	print_lst(t_stack *a)
-{
-	while (a)
-	{
-		printf("%d-->%d\n", a->n, a->index);
-		a = a->next;
-	}
-}
+
 int	main(int ac, char **av)
 {
 	int		i;
@@ -66,10 +54,14 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (!a)
 	{
-		printf("Error\n");
+		ft_putstr("Error");
 		free_lst(&a);
 		return (0);
 	}
+	if (lst_len(a) == 1)
+		return (0);
+	if (check_sort(a))
+		return (0);
 	sort(&a, &b);
 	return (0);
 }
