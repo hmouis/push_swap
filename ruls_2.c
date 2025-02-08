@@ -6,13 +6,13 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:15 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:25:16 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 16:44:07 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int check)
 {
 	t_stack	*last;
 	t_stack	*first;
@@ -34,10 +34,11 @@ void	rra(t_stack **a)
 	save->next = NULL;
 	(*a) = last;
 	(*a)->next = first;
-	ft_putstr("rra");
+	if (check == 1)
+		ft_putstr("rra");
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int check)
 {
 	t_stack	*last;
 	t_stack	*first;
@@ -59,26 +60,30 @@ void	rrb(t_stack **b)
 	save->next = NULL;
 	(*b) = last;
 	(*b)->next = first;
-	ft_putstr("rrb");
+	if (check == 1)
+		ft_putstr("rrb");
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int check)
 {
-	sa(a);
-	sb(b);
-	ft_putstr("rr");
+	sa(a, 1);
+	sb(b, 1);
+	if (check == 1)
+		ft_putstr("rr");
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int check)
 {
-	ra(a);
-	rb(b);
-	ft_putstr("rr");
+	ra(a, 1);
+	rb(b, 1);
+	if (check == 1)
+		ft_putstr("rr");
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int check)
 {
-	rra(a);
-	rrb(b);
-	ft_putstr("rrr");
+	rra(a, 1);
+	rrb(b, 1);
+	if (check == 1)
+		ft_putstr("rrr");
 }

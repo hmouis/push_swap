@@ -6,7 +6,7 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:25 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:25:26 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 16:40:28 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ void	help_fill_b(t_stack **a, t_stack **b, int max, int lst_size)
 	{
 		if ((*a)->index < min)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, 1);
+			rb(b, 1);
 			max += (max < lst_size);
 			min += (min < max);
 		}
 		else if ((*a)->index >= min && (*a)->index <= max)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			if ((*b)->next && (*b)->n < (*b)->next->n)
-				sb(b);
+				sb(b, 1);
 			min += (min < max);
 			max += (max < lst_size);
 		}
 		else
-			ra(a);
+			ra(a, 1);
 	}
 }
 
@@ -87,14 +87,14 @@ void	sort(t_stack **a, t_stack **b)
 		if (move <= lst_size / 2)
 		{
 			while (move-- > 0)
-				rb(b);
+				rb(b, 1);
 		}
 		else
 		{
 			while (move++ < lst_size)
-				rrb(b);
+				rrb(b, 1);
 		}
-		pa(a, b);
+		pa(a, b, 1);
 		lst_size--;
 	}
 }

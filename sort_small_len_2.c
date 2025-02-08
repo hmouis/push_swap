@@ -6,7 +6,7 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:49 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:25:51 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 16:39:48 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ void	push_min(t_stack **a, t_stack **b)
 	i = get_pos(*a);
 	if (i == 4 && lst_len(*a) == 4)
 	{
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 4 && lst_len(*a) == 5)
 	{
-		rra(a);
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 5)
 	{
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 }
 
@@ -41,22 +41,22 @@ void	sort_4(t_stack **a, t_stack **b)
 
 	i = get_pos(*a);
 	if (i == 1)
-		pb(a, b);
+		pb(a, b, 1);
 	else if (i == 2)
 	{
-		sa(a);
-		pb(a, b);
+		sa(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 3)
 	{
-		ra(a);
-		ra(a);
-		pb(a, b);
+		ra(a, 1);
+		ra(a, 1);
+		pb(a, b, 1);
 	}
 	else
 		push_min(a, b);
 	sort_3(a);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_5(t_stack **a, t_stack **b)
@@ -65,22 +65,22 @@ void	sort_5(t_stack **a, t_stack **b)
 
 	i = get_pos(*a);
 	if (i == 1)
-		pb(a, b);
+		pb(a, b, 1);
 	else if (i == 2)
 	{
-		sa(a);
-		pb(a, b);
+		sa(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 3)
 	{
-		ra(a);
-		ra(a);
-		pb(a, b);
+		ra(a, 1);
+		ra(a, 1);
+		pb(a, b, 1);
 	}
 	else
 		push_min(a, b);
 	sort_4(a, b);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_s_a(t_stack **a, t_stack **b, int len)

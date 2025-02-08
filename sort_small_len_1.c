@@ -6,7 +6,7 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:37 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:25:39 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 16:38:36 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sort_2(t_stack **lst, char c)
 	if ((*lst)->n > (*lst)->next->n)
 	{
 		if (c == 'a')
-			sa(lst);
+			sa(lst, 1);
 		if (c == 'b')
-			sb(lst);
+			sb(lst, 1);
 	}
 }
 
@@ -34,19 +34,19 @@ void	sort_3(t_stack **lst)
 	test2 = (*lst)->next->n > last->n;
 	if (test1 && test2 && last->n > (*lst)->n)
 	{
-		rra(lst);
-		sa(lst);
+		rra(lst, 1);
+		sa(lst, 1);
 	}
 	else if (!test1 && ((*lst)->n < last->n))
-		sa(lst);
+		sa(lst, 1);
 	else if (test1 && (*lst)->n > last->n)
-		rra(lst);
+		rra(lst, 1);
 	else if (!test1 && (*lst)->n > last->n && !test2)
-		ra(lst);
+		ra(lst, 1);
 	else if (!test1 && test2)
 	{
-		sa(lst);
-		rra(lst);
+		sa(lst, 1);
+		rra(lst, 1);
 	}
 }
 

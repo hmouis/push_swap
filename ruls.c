@@ -6,13 +6,13 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:07 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 11:25:07 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 16:44:34 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int check)
 {
 	t_stack	*second;
 
@@ -22,10 +22,11 @@ void	sa(t_stack **a)
 	(*a)->next = second->next;
 	second->next = (*a);
 	(*a) = second;
-	ft_putstr("sa");
+	if (check == 1)
+		ft_putstr("sa");
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int check)
 {
 	t_stack	*second;
 
@@ -35,10 +36,11 @@ void	sb(t_stack **b)
 	(*b)->next = second->next;
 	second->next = (*b);
 	(*b) = second;
-	ft_putstr("sb");
+	if (check == 1)
+		ft_putstr("sb");
 }
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int check)
 {
 	t_stack	*first;
 
@@ -48,10 +50,11 @@ void	ra(t_stack **a)
 	*a = (*a)->next;
 	add_back(a, first);
 	first->next = NULL;
-	ft_putstr("ra");
+	if (check == 1)
+		ft_putstr("ra");
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int check)
 {
 	t_stack	*first;
 
@@ -61,5 +64,6 @@ void	rb(t_stack **b)
 	*b = (*b)->next;
 	add_back(b, first);
 	first->next = NULL;
-	ft_putstr("rb");
+	if (check == 1)
+		ft_putstr("rb");
 }
