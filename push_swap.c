@@ -23,7 +23,7 @@ t_stack	*fill_stack_a(char **av)
 	while (av[args])
 	{
 		if (check_arg(av[args]) == LONG_MAX)
-			return (NULL);
+			return (free_lst(&lst), NULL);
 		i = 0;
 		while (av[args][i])
 		{
@@ -33,7 +33,7 @@ t_stack	*fill_stack_a(char **av)
 				break ;
 			n = ft_atoi(av[args], &i);
 			if (n == LONG_MAX || check_number(lst, n))
-				return (NULL);
+				return (free_lst(&lst), NULL);
 			push_to_lst(&lst, n);
 		}
 		args++;
@@ -43,25 +43,24 @@ t_stack	*fill_stack_a(char **av)
 
 int	main(int ac, char **av)
 {
-	int		i;
 	t_stack	*a;
 	t_stack	*b;
 
-	i = 1;
 	if (ac == 1)
 		return (0);
 	a = fill_stack_a(av);
 	b = NULL;
 	if (!a)
 	{
-		ft_putstr("Error");
+		write(2, "Error\n", 6);
 		free_lst(&a);
 		return (0);
 	}
 	if (lst_len(a) == 1)
-		return (0);
+		return (free_lst(&a), 0);
 	if (check_sort(a))
-		return (0);
+		return (free_lst(&a), 0);
 	sort(&a, &b);
+	free_lst(&a);
 	return (0);
 }

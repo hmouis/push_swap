@@ -6,7 +6,7 @@
 /*   By: hmouis <hmouis@1337.ma>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:24:53 by hmouis            #+#    #+#             */
-/*   Updated: 2025/02/07 22:19:05 by hmouis           ###   ########.fr       */
+/*   Updated: 2025/02/08 14:09:07 by hmouis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+t_stack	*fill_stack_a(char **av);
 int					check_sort(t_stack *a);
 int					get_index(t_stack *b);
 void				rrr(t_stack **a, t_stack **b);
