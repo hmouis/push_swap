@@ -26,10 +26,11 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (free_lst(&a), 1);
 	}
-	if (check_sort(a))
+	if (lst_len(b) == 0 && check_sort(a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
 	free_lst(&a);
+	free_lst(&b);
 	return (0);
 }
