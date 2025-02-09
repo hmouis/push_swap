@@ -17,9 +17,9 @@ void	sort_2(t_stack **lst, char c)
 	if ((*lst)->n > (*lst)->next->n)
 	{
 		if (c == 'a')
-			sa(lst);
+			sa(lst, 1);
 		if (c == 'b')
-			sb(lst);
+			sb(lst, 1);
 	}
 }
 
@@ -34,19 +34,19 @@ void	sort_3(t_stack **lst)
 	test2 = (*lst)->next->n > last->n;
 	if (test1 && test2 && last->n > (*lst)->n)
 	{
-		rra(lst);
-		sa(lst);
+		rra(lst, 1);
+		sa(lst, 1);
 	}
 	else if (!test1 && ((*lst)->n < last->n))
-		sa(lst);
+		sa(lst, 1);
 	else if (test1 && (*lst)->n > last->n)
-		rra(lst);
+		rra(lst, 1);
 	else if (!test1 && (*lst)->n > last->n && !test2)
-		ra(lst);
+		ra(lst, 1);
 	else if (!test1 && test2)
 	{
-		sa(lst);
-		rra(lst);
+		sa(lst, 1);
+		rra(lst, 1);
 	}
 }
 
@@ -116,19 +116,19 @@ void	push_min(t_stack **a, t_stack **b)
 	i = get_pos(*a);
 	if (i == 4 && lst_len(*a) == 4)
 	{
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 4 && lst_len(*a) == 5)
 	{
-		rra(a);
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 5)
 	{
-		rra(a);
-		pb(a, b);
+		rra(a, 1);
+		pb(a, b, 1);
 	}
 }
 
@@ -138,22 +138,22 @@ void	sort_4(t_stack **a, t_stack **b)
 
 	i = get_pos(*a);
 	if (i == 1)
-		pb(a, b);
+		pb(a, b, 1);
 	else if (i == 2)
 	{
-		sa(a);
-		pb(a, b);
+		sa(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 3)
 	{
-		ra(a);
-		ra(a);
-		pb(a, b);
+		ra(a, 1);
+		ra(a, 1);
+		pb(a, b, 1);
 	}
 	else
 		push_min(a, b);
 	sort_3(a);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_5(t_stack **a, t_stack **b)
@@ -162,22 +162,22 @@ void	sort_5(t_stack **a, t_stack **b)
 
 	i = get_pos(*a);
 	if (i == 1)
-		pb(a, b);
+		pb(a, b, 1);
 	else if (i == 2)
 	{
-		sa(a);
-		pb(a, b);
+		sa(a, 1);
+		pb(a, b, 1);
 	}
 	else if (i == 3)
 	{
-		ra(a);
-		ra(a);
-		pb(a, b);
+		ra(a, 1);
+		ra(a, 1);
+		pb(a, b, 1);
 	}
 	else
 		push_min(a, b);
 	sort_4(a, b);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	sort_s_a(t_stack **a, t_stack **b, int len)

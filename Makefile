@@ -1,5 +1,5 @@
-NAME = push_swap.a
-check = checker.a
+NAME = push_swap
+check = checker
 
 SRC = c.n.c index_lst.c   p_to_stack.c  ruls_2.c  sort_small_len_1.c ft_putstr.c lst_length.c push_swap.c   ruls.c    sort_small_len_2.c check_sort.c help_fs.c m_main.c   sort.c    sort_small_n.c
 
@@ -10,13 +10,16 @@ CFLAGS = -Wall -Wextra -Werror
 MOBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
 
+
 all: $(NAME)
 
+bonus: $(check)
+
 $(NAME): $(MOBJS)
-	ar rcs $@ $?
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(check): $(BOBJS)
-	ar rcs $@ $?
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
