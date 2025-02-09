@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int check_rule(char *line, t_stack **a, t_stack **b)
+int	check_rule(char *line, t_stack **a, t_stack **b)
 {
 	if (ft_strstr(line, "sa\n"))
 		sa(a, 0);
@@ -47,12 +47,11 @@ int	do_instructions(t_stack **a, t_stack **b)
 
 	line = get_next_line(0);
 	while (line)
-	{	
+	{
 		if (!line || !check_rule(line, a, b))
-			return (free_lst(a), 0);
+			return (free(line), 0);
+		free(line);
 		line = get_next_line(0);
 	}
 	return (1);
 }
-
-

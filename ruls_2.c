@@ -17,11 +17,9 @@ void	rra(t_stack **a, int check)
 	t_stack	*last;
 	t_stack	*first;
 	t_stack	*save;
-	int		i;
 
 	if (!a || !*a)
 		return ;
-	i = 0;
 	last = last_node(*a);
 	first = *a;
 	while (*a)
@@ -43,11 +41,9 @@ void	rrb(t_stack **b, int check)
 	t_stack	*last;
 	t_stack	*first;
 	t_stack	*save;
-	int		i;
 
 	if (!b || !*b)
 		return ;
-	i = 0;
 	last = last_node(*b);
 	first = *b;
 	while (*b)

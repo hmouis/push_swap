@@ -40,5 +40,3 @@ t_stack	*fill_stack_a(char **av)
 	}
 	return (lst);
 }
-
-

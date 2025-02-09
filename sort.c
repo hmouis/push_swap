@@ -41,11 +41,9 @@ void	help_fill_b(t_stack **a, t_stack **b, int max, int lst_size)
 
 void	fill_b(t_stack **a, t_stack **b)
 {
-	int	min;
 	int	max;
 	int	lst_size;
 
-	min = 0;
 	lst_size = lst_len(*a);
 	if (lst_size <= 100)
 		max = lst_size / 6;

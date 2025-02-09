@@ -21,21 +21,15 @@ int	main(int ac, char **av)
 		return (1);
 	a = fill_stack_a(av);
 	b = NULL;
-	if (!a)
-	{
-		write(1, "Error\n", 6);
-		return (free_lst(&a), 1);
-	}
-	if (!do_instructions(&a, &b))
+	if (!a || !do_instructions(&a, &b))
 	{
 		write(2, "Error\n", 6);
-		return (1);
+		return (free_lst(&a), 1);
 	}
 	if (check_sort(a))
-	{
 		write(1, "OK\n", 3);
-	}
 	else
 		write(1, "KO\n", 3);
+	free_lst(&a);
 	return (0);
 }

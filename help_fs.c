@@ -42,7 +42,7 @@ long	check_arg(char *str)
 
 void	check_sign(char *str, long *i, int sign)
 {
-	if (str[*i] == '-' || str[*i] == '+')
+	if ((str[*i] == '-' || str[*i] == '+') && sign == 1)
 	{
 		if (str[*i] == '-')
 			sign = -1;
