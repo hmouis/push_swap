@@ -28,9 +28,9 @@ typedef struct s_stack
 #  define BUFFER_SIZE 10
 # endif
 
-int	do_instructions(t_stack **a, t_stack **b);
-int check_rule(char *line, t_stack **a, t_stack **b);
-int	 ft_strstr(const char *line, const char *rule);
+int					do_instructions(t_stack **a, t_stack **b);
+int					check_rule(char *line, t_stack **a, t_stack **b);
+int					ft_strstr(const char *line, const char *rule);
 char				*ft_strchr(char *s, char c);
 char				*ft_strchr(char *s, char c);
 size_t				ft_strlen(char *s);
