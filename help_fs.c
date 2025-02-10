@@ -40,12 +40,12 @@ long	check_arg(char *str)
 	return (1);
 }
 
-void	check_sign(char *str, long *i, int sign)
+void	check_sign(char *str, long *i, int *sign)
 {
-	if ((str[*i] == '-' || str[*i] == '+') && sign == 1)
+	if ((str[*i] == '-' || str[*i] == '+') && *sign == 1)
 	{
 		if (str[*i] == '-')
-			sign = -1;
+			*sign = -1;
 		(*i)++;
 	}
 }
@@ -57,7 +57,7 @@ long	ft_atoi(char *str, long *i)
 
 	result = 0;
 	sign = 1;
-	check_sign(str, i, sign);
+	check_sign(str, i, &sign);
 	while (str[*i] >= '0' && str[*i] <= '9')
 	{
 		result = result * 10 + str[*i] - '0';

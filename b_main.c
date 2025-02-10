@@ -24,6 +24,7 @@ int	main(int ac, char **av)
 	if (!a || !do_instructions(&a, &b))
 	{
 		write(2, "Error\n", 6);
+		free_lst(&b);
 		return (free_lst(&a), 1);
 	}
 	if (lst_len(b) == 0 && check_sort(a))

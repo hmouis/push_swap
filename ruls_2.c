@@ -18,7 +18,7 @@ void	rra(t_stack **a, int check)
 	t_stack	*first;
 	t_stack	*save;
 
-	if (!a || !*a)
+	if (!a || !*a || lst_len(*a) == 1)
 		return ;
 	last = last_node(*a);
 	first = *a;
@@ -42,7 +42,7 @@ void	rrb(t_stack **b, int check)
 	t_stack	*first;
 	t_stack	*save;
 
-	if (!b || !*b)
+	if (!b || !*b || lst_len(*b) == 1)
 		return ;
 	last = last_node(*b);
 	first = *b;
@@ -62,24 +62,24 @@ void	rrb(t_stack **b, int check)
 
 void	ss(t_stack **a, t_stack **b, int check)
 {
-	sa(a, 1);
-	sb(b, 1);
+	sa(a, check);
+	sb(b, check);
 	if (check == 1)
-		ft_putstr("rr");
+		ft_putstr("ss");
 }
 
 void	rr(t_stack **a, t_stack **b, int check)
 {
-	ra(a, 1);
-	rb(b, 1);
+	ra(a, check);
+	rb(b, check);
 	if (check == 1)
 		ft_putstr("rr");
 }
 
 void	rrr(t_stack **a, t_stack **b, int check)
 {
-	rra(a, 1);
-	rrb(b, 1);
+	rra(a, check);
+	rrb(b, check);
 	if (check == 1)
 		ft_putstr("rrr");
 }

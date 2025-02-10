@@ -6,7 +6,7 @@ SRC= index_lst.c push_swap.c  sort_small_len_1.c  lst_length.c  sort_small_len_2
 BSRC = b_main.c get_next_line.c get_next_line_utils.c checker.c ft_strstr.c check_sort.c ruls_2.c ruls.c p_to_stack.c push_swap.c c_n.c help_fs.c ft_putstr.c index_lst.c lst_length.c sort_small_len_1.c 
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 MOBJS = $(SRC:.c=.o)
 BOBJS = $(BSRC:.c=.o)
 
