@@ -48,7 +48,7 @@ void	fill_b(t_stack **a, t_stack **b)
 	if (lst_size <= 100)
 		max = lst_size / 6;
 	else
-		max = lst_size / 14;
+		max = lst_size / 16;
 	index_lst(a);
 	help_fill_b(a, b, max, lst_size);
 }

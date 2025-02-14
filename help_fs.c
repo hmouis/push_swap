@@ -69,7 +69,7 @@ long	ft_atoi(char *str, long *i)
 		return (LONG_MAX);
 	if (sign == -1 && result > 2147483648)
 		return (LONG_MAX);
-	else if (result > 2147483647)
+	else if (sign == 1 && result > 2147483647)
 		return (LONG_MAX);
 	return (result * sign);
 }
